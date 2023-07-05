@@ -7,6 +7,7 @@
  */
 
 plugins {
+    id 'java'
     id 'application'
     id "org.xtext.xtend" version '4.0.0'
     id 'com.github.johnrengelman.shadow' version '7.1.2'
@@ -50,6 +51,14 @@ dependencies {
 
     implementation 'be.fgov.ehealth.emf.kmehr:be.fgov.ehealth.emf.kmehr:1.38.+'
     implementation 'org.hl7.emf.fhir:org.hl7.emf.fhir:5.0.+'
+
+    testImplementation('org.junit.jupiter:junit-jupiter:5.8.2')
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+ 
+
+tasks.named('test', Test) {
+    useJUnitPlatform()
 }
 
 application {
